@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 export default function Header() {
   return (
     <div className="header">
-      <AppBar position="static">
+      <AppBar position="fixed" style={{marginBottom:'20px'}}>
         <Toolbar variant="dense">
           <IconButton
             edge="start"

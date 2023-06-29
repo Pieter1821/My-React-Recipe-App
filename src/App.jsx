@@ -1,20 +1,23 @@
-
+import React, { Suspense } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
-import Home from "./pages/Home";
+import Spinner from "./components/Spinner"; // Import spinner component
 
+const LazyHome = React.lazy(() => import("./pages/Home"));
+
+const LazyError = React.lazy(() => import("./pages/Error"));
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-        
-   
-          <Route path="*" element={<h1>404</h1>} />
-        </Routes>
+        <Suspense fallback={<Spinner />}>
+          <Routes>
+            <Route path="/" element={<LazyHome />} />
+            <Route path="*" element={<LazyError />} />
+          </Routes>
+        </Suspense>
       </Router>
     </div>
   );
