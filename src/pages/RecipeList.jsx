@@ -54,7 +54,7 @@ const RecipeList = () => {
     : [];
 
   const recipeItems = filteredRecipes.map((recipe) => (
-    <RecipeItem key={recipe.id} recipe={recipe} />
+    <recipeItems key={recipe.id} recipe={recipe} />
   ));
 
   return (
