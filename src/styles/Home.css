@@ -1,32 +1,59 @@
-.home-container {
-  max-width: 100%;
+/* Home.css */
+
+.container {
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   display: flex;
   justify-content: center;
 }
 
-.recipe-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 20px;
-  justify-items: center;
+
+
+.results {
+  margin-top: 20px;
 }
 
-.recipe-card {
-  width: 100%;
-  background-color: #f9f9f9;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
+.result-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
 }
 
-.recipe-card h3 {
-  margin-top: 0;
+.result-item h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
-.recipe-card img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
+.result-item p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.result-item a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .result-item {
+    padding: 5px;
+  }
+
+  .result-item h3 {
+    font-size: 16px;
+  }
+
+  .result-item p {
+    font-size: 12px;
+  }
 }

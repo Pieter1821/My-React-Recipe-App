@@ -1,77 +1,117 @@
+/* CSS styles for the SearchForm component */
 .search-form {
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .search-input {
-    padding: 10px;
-    margin-right: 10px;
-    width: 100%;
-    max-width: 300px;
-  }
-  
-  .search-button {
-    padding: 10px 20px;
-    background-color: #333;
-    color:black;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .search-button:hover {
-    background-color: #555;
-  }
-  
-  .recipe-card {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .recipe-card h3 {
-    margin-top: 0;
-  }
-  
-  .recipe-card img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-  }
-  
-  @media (max-width: 480px) {
-    .search-input {
-      max-width: none;
-    }
-  }
-  
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-  
-  .fade-in-animation {
-    animation: fade-in 0.5s ease;
-  }
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
 
+.search-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  flex-grow: 1;
+  margin-right: 10px;
+}
 
-  button {
-    padding: 8px 16px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    background-color: #4caf50;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .clear-button {
-    margin-left: 10px;
-    background-color: #f44336;
-  }
-  
+.search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Additional styles for other elements in the component */
+.loading-message {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 20px;
+}
+
+.recipe-container {
+  margin-bottom: 20px;
+}
+
+.recipe-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.recipe-image {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.ingredients-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.ingredients-list li {
+  margin-bottom: 5px;
+}
+
+.instructions-button {
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.instructions-button span {
+  margin-left: 5px;
+}
+
+.instructions-container {
+  margin-top: 10px;
+}
+
+.instructions-title {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.instructions-list {
+  list-style-type: decimal;
+  margin: 0;
+  padding: 0;
+}
+
+.instructions-list li {
+  margin-bottom: 5px;
+}
+
+.clear-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.clear-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

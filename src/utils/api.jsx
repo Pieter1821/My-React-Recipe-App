@@ -6,7 +6,7 @@ const getHeaders = () => ({
 
 export const getRecipes = async (number) => {
   try {
-    const apiKey = import.meta.env.VITE_API_KEY; // environment variable 
+    const apiKey = import.meta.env.VITE_API_KEY;
     const response = await fetch(`${BASE_URL}/recipes/random?number=${number}&apiKey=${apiKey}`, {
       headers: getHeaders(),
     });
@@ -22,8 +22,7 @@ export const getRecipes = async (number) => {
 };
 
 const api = {
-    getRecipes,
-  };
+  getRecipes,
+};
 
-
-export default api
+export default api;

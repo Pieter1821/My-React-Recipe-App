@@ -1,25 +1,16 @@
 import React, { useState } from 'react';
 import SearchForm from '../components/SearchForm';
 import '../styles/Home.css';
-import FavoriteRecipes from '../pages/FavoriteRecipes';
-import RecipeList from '../pages/RecipeList';
+import { Link } from 'react-router-dom';
 
-export default function Home() {
-  const [favoriteRecipes, setFavoriteRecipes] = useState([]);
+const Home = () => {
   const [searchedRecipes, setSearchedRecipes] = useState([]);
-
-  const addToFavorites = (recipe) => {
-    setFavoriteRecipes([...favoriteRecipes, recipe]);
-  };
-
-  const removeFromFavorites = (id) => {
-    setFavoriteRecipes(favoriteRecipes.filter((recipe) => recipe.id !== id));
-  };
 
   const searchRecipes = async (query) => {
     try {
+      const apiKey = import.meta.env.VITE_API_KEY;
       const response = await fetch(
-        `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=import.meta.env.VITE_API_KEY`
+        `https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${apiKey}&number=5`
       );
       const data = await response.json();
       setSearchedRecipes(data.results);
@@ -29,18 +20,23 @@ export default function Home() {
   };
 
   return (
-    <div>
+    <div className="container">
       <SearchForm onSearch={searchRecipes} />
-
-      <RecipeList
-        recipes={searchedRecipes}
-        addToFavorites={addToFavorites}
-      />
-
-      <FavoriteRecipes
-        favoriteRecipes={favoriteRecipes}
-        removeFromFavorites={removeFromFavorites}
-      />
+      <div className="results">
+        {searchedRecipes.map((recipe) => (
+          <div className="result-item" key={recipe.id}>
+            <h3>{recipe.title}</h3>
+            <p>Ready in {recipe.readyInMinutes} minutes</p>
+            <p>Servings: {recipe.servings}</p>
+            <Link to={recipe.sourceUrl} target="_blank" rel="noopener noreferrer">
+              View Recipe
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
+};
+
+export default Home;
+

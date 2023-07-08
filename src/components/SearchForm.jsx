@@ -1,17 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const SearchForm = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [showInstructions, setShowInstructions] = useState({});
+
+  useEffect(() => {
+    if (searchQuery !== "") {
+      // Call the search API when searchQuery changes
+      searchRecipes();
+    }
+  }, [searchQuery]);
 
   const handleInputChange = (event) => {
     setSearchQuery(event.target.value);
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const searchRecipes = async (event) => {
+    if (event) {
+      event.preventDefault(); // Prevent form submission causing page reload
+    }
     setLoading(true);
     setError(null);
     try {
@@ -59,14 +69,10 @@ const SearchForm = () => {
   const getRecipeInstructions = async (recipeId) => {
     try {
       const instructions = await fetchRecipeInstructions(recipeId);
-      setSearchResults((prevState) => {
-        const newState = [...prevState];
-        const recipeIndex = newState.findIndex((recipe) => recipe.id === recipeId);
-        if (recipeIndex !== -1) {
-          newState[recipeIndex].instructions = instructions;
-        }
-        return newState;
-      });
+      setShowInstructions((prevState) => ({
+        ...prevState,
+        [recipeId]: instructions,
+      }));
       console.log('Instructions for recipe', recipeId, ':', instructions);
     } catch (error) {
       console.log('Error fetching recipe instructions:', error);
@@ -77,11 +83,16 @@ const SearchForm = () => {
     setSearchQuery("");
     setSearchResults([]);
     setError(null);
+    setShowInstructions({});
+  };
+
+  const handleBack = () => {
+    setShowInstructions({});
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={searchRecipes}>
         <input
           type="text"
           value={searchQuery}
@@ -98,7 +109,7 @@ const SearchForm = () => {
       {searchQuery !== "" && searchResults.length === 0 && !loading && !error && (
         <p>No recipes found.</p>
       )}
-      {!loading && !error && (
+      {!loading && !error && Object.keys(showInstructions).length === 0 && (
         <div>
           {searchResults.map((recipe) => (
             <div key={recipe.id}>
@@ -109,16 +120,6 @@ const SearchForm = () => {
                   <li key={ingredient.id}>{ingredient.name}</li>
                 ))}
               </ul>
-              {recipe.instructions && (
-                <div>
-                  <h4>Instructions</h4>
-                  <ol>
-                    {recipe.instructions.map((instruction, index) => (
-                      <li key={index}>{instruction}</li>
-                    ))}
-                  </ol>
-                </div>
-              )}
               <button onClick={() => getRecipeInstructions(recipe.id)}>
                 Show Instructions
                 {recipe.instructions && (
@@ -129,9 +130,53 @@ const SearchForm = () => {
           ))}
         </div>
       )}
-        <button type="button" onClick={handleClear} disabled={loading || searchQuery === ""}>
-          Clear the page
-        </button>
+      {!loading && !error && Object.keys(showInstructions).length > 0 && (
+        <div>
+          <button type="button" onClick={handleBack}>
+            Back to Search Results
+          </button>
+          {searchResults.map((recipe) => (
+            <div key={recipe.id}>
+              {showInstructions[recipe.id] ? (
+                <div>
+                  <h3>{recipe.title}</h3>
+                  <img src={recipe.image} alt={recipe.title} />
+                  <ul>
+                    {recipe.usedIngredients?.map((ingredient) => (
+                      <li key={ingredient.id}>{ingredient.name}</li>
+                    ))}
+                  </ul>
+                  <div>
+                    <h4>Instructions</h4>
+                    <ol>
+                      {showInstructions[recipe.id].map((instruction, index) => (
+                        <li key={index}>{instruction}</li>
+                      ))}
+                    </ol>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <h3>{recipe.title}</h3>
+                  <img src={recipe.image} alt={recipe.title} />
+                  <ul>
+                    {recipe.usedIngredients?.map((ingredient) => (
+                      <li key={ingredient.id}>{ingredient.name}</li>
+                    ))}
+                  </ul>
+                  <button onClick={() => getRecipeInstructions(recipe.id)}>
+                    Show Instructions
+                    {recipe.instructions && (
+                      <span>({recipe.instructions.length} steps)</span>
+                    )}
+                  </button>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+      
     </div>
   );
 };
