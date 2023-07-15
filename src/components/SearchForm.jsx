@@ -123,7 +123,7 @@ const SearchForm = () => {
   };
 
   return (
-    <div className="search-form-container">
+    <div>
       <form onSubmit={searchRecipes}>
         <input
           type="text"

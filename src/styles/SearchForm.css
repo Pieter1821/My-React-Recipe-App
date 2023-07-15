@@ -122,15 +122,3 @@
   flex-direction: column;
   align-items: center;
 }
-
-@media (max-width: 600px) {
-  .search-form {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .search-input {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-}

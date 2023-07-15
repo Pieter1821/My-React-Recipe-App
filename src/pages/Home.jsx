@@ -21,6 +21,7 @@ const Home = () => {
 
   return (
     <div className="container">
+      <SearchForm onSearch={searchRecipes} />
       <div className="results">
         {searchedRecipes.map((recipe) => (
           <div className="result-item" key={recipe.id}>
@@ -28,7 +29,6 @@ const Home = () => {
             <Link to={recipe.sourceUrl} target="_blank" rel="noopener noreferrer">
               View Recipe
             </Link>
-            <SearchForm onSearch={searchRecipes} />
           </div>
         ))}
       </div>
@@ -37,5 +37,3 @@ const Home = () => {
 };
 
 export default Home;
-
-

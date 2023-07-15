@@ -1,13 +1,27 @@
-import { AppBar, Toolbar, Typography, IconButton, Box } from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+
+import IconButton from "@mui/material/IconButton";
 
 export default function Header() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="relative" sx={{ marginBottom: "20px" }}>
+    <div className="header">
+      <AppBar position="fixed" style={{marginBottom:'20px'}}>
+        <Toolbar variant="dense">
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+
+          </IconButton>
           <Typography variant="h6" color="inherit" component="div">
-            What's your favorite recipe?
+            What's your favourite recipe?
           </Typography>
+        </Toolbar>
       </AppBar>
-    </Box>
+    </div>
   );
 }
