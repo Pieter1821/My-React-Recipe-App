@@ -3,6 +3,10 @@
 
 This is a recipe application built using React JS and Vite. The app utilizes lazy loading functions and retrieves data from the Spoonacular API.
 
+## Site is Live
+
+The recipe app is live and accessible at [https://react-api-recipe-app.netlify.app](https://react-api-recipe-app.netlify.app). Check it out and start exploring delicious recipes!
+
 ## Features
 
 - Browse a wide variety of recipes
