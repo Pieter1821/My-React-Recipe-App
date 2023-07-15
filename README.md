@@ -62,51 +62,6 @@ To get started with the recipe app, follow these steps:
 
 6. Open your browser and visit `http://localhost:3000` to access the recipe app.
 
-## Project Structure
-
-The project structure is organized as follows:
-
-```
-recipe-app/
-├── public/
-│   ├── index.html
-│   └── ...
-├── src/
-│   ├── components/
-│   │   ├── Header.js
-│   │   ├── RecipeCard.js
-│   │   └── ...
-│   ├── pages/
-│   │   ├── Home.js
-│   │   ├── RecipeDetails.js
-│   │   └── ...
-│   ├── services/
-│   │   ├── api.js
-│   │   └── ...
-│   ├── utils/
-│   │   ├── lazyLoad.js
-│   │   └── ...
-│   ├── App.js
-│   └── index.js
-├── .env
-├── .gitignore
-├── package.json
-└── ...
-```
-
-- The `public/` directory contains the HTML template file and any static assets.
-- The `src/` directory contains the main source code of the application.
-- The `components/` directory holds reusable components used throughout the app.
-- The `pages/` directory contains the different pages or views of the application.
-- The `services/` directory includes utility functions for interacting with the Spoonacular API.
-- The `utils/` directory consists of helper functions, such as the lazy loading function.
-- The `App.js` file is the entry point of the application.
-- The `index.js` file renders the root component into the DOM.
-- The `.env` file stores the API key for the Spoonacular API.
-- The `.gitignore` file specifies which files and directories should be ignored by Git.
-- The `package.json` file includes project metadata and lists the project dependencies.
-
-Feel free to explore the code and modify it according to your needs.
 
 ## Contributing
 
