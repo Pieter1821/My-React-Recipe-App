@@ -90,8 +90,40 @@ const SearchForm = () => {
     setShowInstructions({});
   };
 
+  const renderRecipe = (recipe) => {
+    const { id, title, image, usedIngredients, instructions } = recipe;
+    const recipeInstructions = showInstructions[id];
+
+    return (
+      <div key={id}>
+        <h3>{title}</h3>
+        <img src={image} alt={title} />
+        <ul>
+          {usedIngredients?.map((ingredient) => (
+            <li key={ingredient.id}>{ingredient.name}</li>
+          ))}
+        </ul>
+        {recipeInstructions ? (
+          <div>
+            <h4>Instructions</h4>
+            <ol>
+              {recipeInstructions.map((instruction, index) => (
+                <li key={index}>{instruction}</li>
+              ))}
+            </ol>
+          </div>
+        ) : (
+          <button onClick={() => getRecipeInstructions(id)}>
+            Show Instructions
+            {instructions && <span>({instructions.length} steps)</span>}
+          </button>
+        )}
+      </div>
+    );
+  };
+
   return (
-    <div>
+    <div className="search-form-container">
       <form onSubmit={searchRecipes}>
         <input
           type="text"
@@ -111,23 +143,7 @@ const SearchForm = () => {
       )}
       {!loading && !error && Object.keys(showInstructions).length === 0 && (
         <div>
-          {searchResults.map((recipe) => (
-            <div key={recipe.id}>
-              <h3>{recipe.title}</h3>
-              <img src={recipe.image} alt={recipe.title} />
-              <ul>
-                {recipe.usedIngredients?.map((ingredient) => (
-                  <li key={ingredient.id}>{ingredient.name}</li>
-                ))}
-              </ul>
-              <button onClick={() => getRecipeInstructions(recipe.id)}>
-                Show Instructions
-                {recipe.instructions && (
-                  <span>({recipe.instructions.length} steps)</span>
-                )}
-              </button>
-            </div>
-          ))}
+          {searchResults.map(renderRecipe)}
         </div>
       )}
       {!loading && !error && Object.keys(showInstructions).length > 0 && (
@@ -135,48 +151,9 @@ const SearchForm = () => {
           <button type="button" onClick={handleBack}>
             Back to Search Results
           </button>
-          {searchResults.map((recipe) => (
-            <div key={recipe.id}>
-              {showInstructions[recipe.id] ? (
-                <div>
-                  <h3>{recipe.title}</h3>
-                  <img src={recipe.image} alt={recipe.title} />
-                  <ul>
-                    {recipe.usedIngredients?.map((ingredient) => (
-                      <li key={ingredient.id}>{ingredient.name}</li>
-                    ))}
-                  </ul>
-                  <div>
-                    <h4>Instructions</h4>
-                    <ol>
-                      {showInstructions[recipe.id].map((instruction, index) => (
-                        <li key={index}>{instruction}</li>
-                      ))}
-                    </ol>
-                  </div>
-                </div>
-              ) : (
-                <div>
-                  <h3>{recipe.title}</h3>
-                  <img src={recipe.image} alt={recipe.title} />
-                  <ul>
-                    {recipe.usedIngredients?.map((ingredient) => (
-                      <li key={ingredient.id}>{ingredient.name}</li>
-                    ))}
-                  </ul>
-                  <button onClick={() => getRecipeInstructions(recipe.id)}>
-                    Show Instructions
-                    {recipe.instructions && (
-                      <span>({recipe.instructions.length} steps)</span>
-                    )}
-                  </button>
-                </div>
-              )}
-            </div>
-          ))}
+          {searchResults.map(renderRecipe)}
         </div>
       )}
-      
     </div>
   );
 };
