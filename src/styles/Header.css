@@ -1,0 +1,35 @@
+/* Header.css */
+
+.header {
+    background-color: #222;
+    color: #fff;
+  }
+  
+  .header-logo {
+    font-weight: bold;
+    margin-right: 0.5rem;
+    color: #f39c12; /* Logo color */
+  }
+  
+  .app-title {
+    display: flex;
+    align-items: center;
+  }
+  
+  .app-title svg {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .app-title {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .app-title svg {
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+    }
+  }
+  

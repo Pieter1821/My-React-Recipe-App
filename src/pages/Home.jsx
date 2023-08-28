@@ -21,12 +21,17 @@ const Home = () => {
 
   return (
     <div className="container">
+      <h1>Search Delicious Recipes</h1>
       <SearchForm onSearch={searchRecipes} />
       <div className="results">
         {searchedRecipes.map((recipe) => (
           <div className="result-item" key={recipe.id}>
             <h3>{recipe.title}</h3>
-            <Link to={recipe.sourceUrl} target="_blank" rel="noopener noreferrer">
+            <Link
+              to={`/recipe/${recipe.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               View Recipe
             </Link>
           </div>
