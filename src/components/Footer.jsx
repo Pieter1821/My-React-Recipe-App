@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="footer-container">
       <div className="footer-content">
-        <p className="footer-text">© {new Date().getFullYear()} React Recipe App. All rights reserved.</p>
+        <p className="footer-text">© {new Date().getFullYear()} React-Recipe-Hub. All rights reserved.</p>
         <p className="footer-author">Designed and Developed by Pieter Deane</p>
       </div>
     </div>

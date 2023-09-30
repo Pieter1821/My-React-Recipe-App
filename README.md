@@ -1,4 +1,3 @@
-
 # React JS Recipe App
 
 This is a recipe application built using React JS and Vite. The app utilizes lazy loading functions and retrieves data from the Spoonacular API.
@@ -44,7 +43,7 @@ To get started with the recipe app, follow these steps:
    ```
 
 4. Set up your Spoonacular API key:
-   
+
    - Visit the [Spoonacular API website](https://spoonacular.com/food-api) and sign up for an account.
    - Obtain your API key from the dashboard.
    - Create a `.env` file in the root directory of the project.
@@ -62,7 +61,6 @@ To get started with the recipe app, follow these steps:
 
 6. Open your browser and visit `http://localhost:3000` to access the recipe app.
 
-
 ## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvement, please open an issue or submit a pull request.
@@ -70,4 +68,7 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+```
+
 ```
