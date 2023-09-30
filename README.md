@@ -1,4 +1,4 @@
-# React JS Recipe App
+# React Recipe Hub
 
 This is a recipe application built using React JS and Vite. The app utilizes lazy loading functions and retrieves data from the Spoonacular API.
 
