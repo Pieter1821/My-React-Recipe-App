@@ -5,7 +5,7 @@ This is a recipe application built using React JS and Vite. The app utilizes laz
 
 ## Site is Live
 
-The recipe app is live and accessible at [https://yourfavoriterecipe.netlify.app](https://yourfavoriterecipe.netlify.app). Check it out and start exploring delicious recipes!
+The recipe app is live and accessible at [https://reactrecipehub.netlify.app](https://reactrecipehub.netlify.app). Check it out and start exploring delicious recipes!
 
 ## Features
 
