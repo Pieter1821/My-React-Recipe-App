@@ -1,28 +1,23 @@
 const BASE_URL = "https://api.spoonacular.com";
+const API_KEY = import.meta.env.VITE_API_KEY;
 
-const getHeaders = () => ({
-  "Content-Type": "application/json",
-});
+const fetchRecipes = async (number) => {
+  const url = `${BASE_URL}/recipes/random?number=${number}&apiKey=${API_KEY}`;
+  const headers = { "Content-Type": "application/json" };
 
-export const getRecipes = async (number) => {
   try {
-    const apiKey = import.meta.env.VITE_API_KEY;
-    const response = await fetch(`${BASE_URL}/recipes/random?number=${number}&apiKey=${apiKey}`, {
-      headers: getHeaders(),
-    });
+    const response = await fetch(url, { headers });
+
     if (!response.ok) {
       throw new Error("Failed to fetch recipes");
     }
+
     const data = await response.json();
     return data.recipes;
   } catch (error) {
-    console.log("Error fetching recipes:", error);
+    console.error("Error fetching recipes:", error);
     throw error;
   }
 };
 
-const api = {
-  getRecipes,
-};
-
-export default api;
+export default fetchRecipes;

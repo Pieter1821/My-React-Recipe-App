@@ -1,12 +1,13 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../styles/Error.css';
 
 export default function Error() {
   return (
-    <div>
-      <h1>Oops! You've stumbled upon a secret recipe!</h1>
-      <p>Unfortunately, this recipe is so top-secret that it's not even available on this page.</p>
-      <p>Please try again later or use your culinary instincts to whip up something delicious!</p>
-      <img src="https://example.com/funny404image.gif" alt="Funny 404 Image" />
+    <div className="error-container">
+      <h1>Oops!</h1>
+      <p>Something went wrong. Please try again later.</p>
+      <Link to="/" className="back-button">Go back to the home page</Link>
     </div>
   );
 }

@@ -1,14 +1,15 @@
 import React from 'react';
-import '../styles/Footer.css'; 
+import '../styles/Footer.css';
 
-export default function Footer() {
+const Footer = () => {
   return (
     <div className="footer-container">
       <div className="footer-content">
-        <p className="footer-text">
-          &copy; 2023 Created by <span className="footer-author">Pieter Deane</span>
-        </p>
+        <p className="footer-text">© {new Date().getFullYear()} React Recipe App. All rights reserved.</p>
+        <p className="footer-author">Designed and Developed by Pieter Deane</p>
       </div>
     </div>
   );
-}
+};
+
+export default Footer;

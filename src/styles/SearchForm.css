@@ -1,20 +1,19 @@
-
-
-
-.search-form-container {
+/* Search Container */
+.search-container {
   display: flex;
-  margin-top: 20px;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
 }
 
-
+/* Search Form */
 .search-form {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
 
+/* Search Input */
 .search-input {
   padding: 10px;
   font-size: 16px;
@@ -22,24 +21,56 @@
   border-radius: 4px;
   flex-grow: 1;
   margin-right: 10px;
+  transition: border-color 0.3s ease-in-out;
 }
 
-.search-button {
-  padding: 10px 20px;
+.search-input:focus {
+  border-color: #007bff;
+}
+
+/* Buttons (Search, Clear, Back) */
+.search-button,
+.clear-button,
+.back-button {
+  padding: 5px 10px;
   font-size: 16px;
-  background-color: #007bff;
-  color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  color: #fff;
+  transition: background-color 0.3s ease-in-out;
+  background-color: transparent;
 }
 
-.search-button:disabled {
-  background-color: #ccc;
+/* Search Button */
+.search-button {
+  background-color: #464749;
+  margin-left: 10px;
+}
+
+/* Clear and Back Buttons */
+.clear-button,
+.back-button {
+  display: inline-block;
+  margin: 10px;
+  background-color: #464749;
+}
+
+/* Disabled Buttons */
+.search-button:disabled,
+.clear-button:disabled,
+.back-button:disabled {
   cursor: not-allowed;
 }
 
-/* Loading and error messages */
+/* Button Hover Effect */
+.search-button:hover,
+.clear-button:hover,
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+/* Messages (Loading and Error) */
 .loading-message,
 .error-message {
   font-size: 18px;
@@ -47,113 +78,68 @@
   color: red;
 }
 
-/* Recipe container */
-.recipe-container {
-  margin-bottom: 20px;
+/* Recipe Card */
+.recipe-card {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Recipe title and image */
-.recipe-title {
-  font-size: 20px;
-  margin-bottom: 10px;
+.recipe-card:hover {
+  transform: translateY(-5px);
 }
 
-.recipe-image {
-  width: 200px;
-  height: 150px;
-  object-fit: cover;
-  margin-bottom: 10px;
-}
-
-/* Ingredients list */
-.ingredients-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  margin-bottom: 10px;
-}
-
-.ingredients-list li {
-  margin-bottom: 5px;
-}
-
-/* Instructions button */
+/* Instructions Button */
 .instructions-button {
-  padding: 5px 10px;
-  font-size: 14px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.instructions-button span {
-  margin-left: 5px;
+.instructions-button:hover {
+  background-color: #0056b3;
 }
 
-/* Instructions container and list */
+/* Recipe Card Title */
+.recipe-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Recipe Card Image */
+.recipe-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* Instructions Container */
 .instructions-container {
   margin-top: 10px;
 }
 
+/* Instructions Title */
 .instructions-title {
   font-size: 16px;
   margin-bottom: 10px;
 }
 
+/* Instructions List */
 .instructions-list {
   list-style-type: decimal;
   margin: 0;
   padding: 0;
 }
 
+/* Instructions List Item */
 .instructions-list li {
   margin-bottom: 5px;
-}
-
-/* Clear button */
-.clear-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-.clear-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-  .search-form {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .search-input,
-  .search-button {
-    width: 100%;
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-  
-  .recipe-title {
-    font-size: 18px;
-  }
-  
-  .recipe-image {
-    width: 100%;
-    height: auto;
-  }
-  
-  .ingredients-list li,
-  .instructions-list li {
-    font-size: 14px;
-  }
 }
