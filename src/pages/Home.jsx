@@ -37,14 +37,14 @@ const Home = () => {
       <h1>Search Delicious Recipes</h1>
       <SearchForm onSearch={searchRecipes} />
 
-      {loading && <p>Loading...</p>}
-      {error && <p className="error-message">{error}</p>}
+      {loading && <div className="loading">Loading...</div>}
+      {error && <div className="error-message">{error}</div>}
 
       <div className="results">
         {searchedRecipes.map((recipe) => (
           <div className="result-item" key={recipe.id}>
             <h3>{recipe.title}</h3>
-            <Link to={`/recipe/${recipe.id}`} target="_blank" rel="noopener noreferrer">
+            <Link to={`/recipe/${recipe.id}`} className="view-recipe-link">
               View Recipe
             </Link>
           </div>

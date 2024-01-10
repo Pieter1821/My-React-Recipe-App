@@ -1,12 +1,11 @@
-
 .footer-container {
-  background-color: lightseagreen;
-  color: #fff;
+  background-color: #20b2aa; 
+  color: #ffffff;
   text-align: center;
   padding: 2rem 0;
-  position: absolute;
-  bottom: 0;
   width: 100%;
+  font-family: 'Arial', sans-serif; 
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .footer-content {
@@ -20,11 +19,10 @@
   font-size: 1.2rem;
 }
 
-
 .footer-author {
-  color: #f39c12;
+  color: #2e8b57; 
+  font-style: italic; 
 }
-
 
 @media (max-width: 768px) {
   .footer-container {
@@ -33,5 +31,11 @@
 
   .footer-text {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-text {
+    font-size: 0.8rem;
   }
 }
