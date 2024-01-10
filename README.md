@@ -4,7 +4,7 @@ This is a recipe application built using React JS and Vite. The app utilizes laz
 
 ## Site is Live
 
-The recipe app is live and accessible at [https://reactrecipehub.netlify.app](https://reactrecipehub.netlify.app). Check it out and start exploring delicious recipes!
+The recipe hub is live and accessible at [https://reactrecipehub.netlify.app](https://reactrecipehub.netlify.app). Check it out and start exploring delicious recipes!
 
 ## Features
 
@@ -22,18 +22,18 @@ The recipe app is live and accessible at [https://reactrecipehub.netlify.app](ht
 
 ## Getting Started
 
-To get started with the recipe app, follow these steps:
+To get started with the recipe hub, follow these steps:
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/recipe-app.git
+   git clone https://github.com/your-username/recipe-hub.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd recipe-app
+   cd recipe-hub
    ```
 
 3. Install the dependencies:
@@ -59,7 +59,7 @@ To get started with the recipe app, follow these steps:
    npm run dev
    ```
 
-6. Open your browser and visit `http://localhost:3000` to access the recipe app.
+6. Open your browser and visit `http://localhost:3000` to access the recipe hub.
 
 ## Contributing
 
