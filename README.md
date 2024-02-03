@@ -1,7 +1,5 @@
 # React Recipe Hub
 
-This is a recipe application built using React JS and Vite. The app utilizes lazy loading functions and retrieves data from the Spoonacular API.
-
 ## Site is Live
 
 The recipe hub is live and accessible at [https://reactrecipehub.netlify.app](https://reactrecipehub.netlify.app). Check it out and start exploring delicious recipes!
